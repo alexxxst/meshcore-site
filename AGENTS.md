@@ -21,7 +21,8 @@ MeshCore в Санкт-Петербурге. Заменяет текущий р�
 index.html            страница целиком, включая inline SVG и счётчик
 style.css             все стили
 logo.jpg              логотип из вики, 480×480 jpg (белый фон)
-favicon.png           логотип из вики, 256×256 png
+favicon.png           логотип из вики, 256×256 png (оптимизированная палитра)
+favicon.ico           тот же логотип, 16, 32 и 48 px для вкладки
 AGENTS.md             этот файл
 ```
 
@@ -165,8 +166,8 @@ Description: `Как подключиться к MeshCore в Петербург�
 
 ## Выкладка
 
-На сервер копируются только `index.html`, `style.css`, `logo.jpg` и
-`favicon.png`.
+На сервер копируются только `index.html`, `style.css`, `logo.jpg`,
+`favicon.png` и `favicon.ico`.
 В nginx нужно убрать правило, которое отдаёт 301 с `/` на `/wiki/start`,
 иначе новый `index.html` не откроется. `/wiki/` и `/flasher/` не трогать.
 
