@@ -20,8 +20,8 @@
 ```
 index.html            страница целиком, включая inline SVG и счётчик
 style.css             все стили
-assets/logo.jpg       логотип из вики, 480×480 jpg (белый фон)
-assets/favicon.png    логотип из вики, 256×256 png
+logo.jpg              логотип из вики, 480×480 jpg (белый фон)
+favicon.png           логотип из вики, 256×256 png
 AGENTS.md             этот файл
 ```
 
@@ -159,7 +159,8 @@ Description: `Как подключиться к радиосети MeshCore в 
 
 ## Выкладка
 
-На сервер копируются только `index.html`, `style.css` и папка `assets/`.
+На сервер копируются только `index.html`, `style.css`, `logo.jpg` и
+`favicon.png`.
 В nginx нужно убрать правило, которое отдаёт 301 с `/` на `/wiki/start`,
 иначе новый `index.html` не откроется. `/wiki/` и `/flasher/` не трогать.
 
