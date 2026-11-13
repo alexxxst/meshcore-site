@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MeshCore Санкт-Петербург — радиосеть без интернета</title>
+  <meta name="description" content="Как подключиться к радиосети MeshCore в Петербурге: настройки 868 МГц, прошивка ноды и общий канал Public.">
+  <meta name="theme-color" content="#0042aa">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css?v=4">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://meshcore.spb.ru/">
+  <meta property="og:title" content="MeshCore Санкт-Петербург — радиосеть без интернета">
+  <meta property="og:description" content="Настройки сети 868 МГц, прошивка ноды и общий канал Public: как подключиться к радиосети MeshCore в Петербурге.">
+  <meta property="og:image" content="https://meshcore.spb.ru/assets/logo.jpg">
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1>Радиосеть MeshCore в&nbsp;Петербурге</h1>
+          <p class="hero__lead">Сообщения без интернета и сотовой связи. Устройства передают их по радио друг другу — чем больше участников, тем шире покрытие.</p>
+          <p class="hero__note">Нода уже на руках? Осталось прошить, вбить настройки и выйти в эфир.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="/flasher/">Прошить ноду</a>
+            <a class="button button--secondary" href="/wiki/start">Как всё устроено</a>
+          </div>
+        </div>
+        <div class="hero__logo">
+          <img src="assets/logo.jpg" width="220" height="220" alt="MeshCore Санкт-Петербург">
+        </div>
+      </div>
+
+      <div class="skyline">
+        <svg class="skyline__desktop" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+          <g class="skyline__links" fill="none" stroke="#0042aa" stroke-width="1" stroke-dasharray="4 8" opacity=".45">
+            <path d="M165 78 Q217 45 270 48"/>
+            <path d="M270 48 Q375 55 480 88"/>
+            <path d="M480 88 Q590 45 700 45"/>
+            <path d="M700 45 Q782 45 865 82"/>
+            <path d="M865 82 Q952 55 1040 55"/>
+          </g>
+
+          <g class="skyline__city" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".24">
+            <path d="M0 205 H1200"/>
+            <path d="M72 205 C80 150 88 100 96 58 L104 30 L112 58 C120 100 128 150 136 205"/>
+            <path d="M72 205 H136"/>
+            <path d="M104 30 V14"/>
+            <path d="M296 205 V168 H338 V130 L352 110 V48 L356 30 L360 48 V110 L374 130 V168 H416 V205"/>
+            <path d="M296 205 H416"/>
+            <path d="M590 205 V165 H614 V140 C614 118 630 106 652 106 C674 106 690 118 690 140 V165 H714 V205"/>
+            <path d="M590 205 H714"/>
+            <path d="M640 106 V88 H664 V106"/>
+            <path d="M646 88 V78 H658 V88"/>
+            <path d="M902 205 V184 H958 V205"/>
+            <path d="M902 205 H958"/>
+            <path d="M920 184 V90 H940 V184"/>
+            <path d="M914 90 H946"/>
+            <path d="M926 90 C920 78 926 68 930 58 C934 68 940 78 934 90"/>
+          </g>
+
+          <g class="skyline__nodes" fill="#0042aa">
+            <circle class="skyline__node" cx="165" cy="78" r="6"/>
+            <circle class="skyline__node" cx="270" cy="48" r="6" fill="#f26a21"/>
+            <circle class="skyline__node" cx="480" cy="88" r="6"/>
+            <circle class="skyline__node" cx="700" cy="45" r="6" fill="#f26a21"/>
+            <circle class="skyline__node" cx="865" cy="82" r="6"/>
+            <circle class="skyline__node" cx="1040" cy="55" r="6"/>
+          </g>
+
+          <g class="skyline__arcs" fill="none" stroke="#f26a21" stroke-width="1">
+            <path d="M686 45 A14 14 0 0 1 700 31" opacity=".38"/>
+            <path d="M676 45 A24 24 0 0 1 700 21" opacity=".26"/>
+            <path d="M666 45 A34 34 0 0 1 700 11" opacity=".15"/>
+          </g>
+        </svg>
+
+        <svg class="skyline__mobile" viewBox="0 0 390 150" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+          <g class="skyline__links" fill="none" stroke="#0042aa" stroke-width="1" stroke-dasharray="4 8" opacity=".45">
+            <path d="M52 68 Q100 35 150 45"/>
+            <path d="M150 45 Q205 45 265 60"/>
+            <path d="M265 60 Q310 42 355 45"/>
+          </g>
+
+          <g class="skyline__city" fill="none" stroke="currentColor" stroke-width="1.5" opacity=".26">
+            <path d="M0 140 H390"/>
+            <path d="M30 140 V110 H65 V85 L78 68 V28 L82 18 L86 28 V68 L99 85 V110 H134 V140"/>
+            <path d="M30 140 H134"/>
+            <path d="M160 140 V112 H178 V92 C178 76 190 68 204 68 C218 68 230 76 230 92 V112 H248 V140"/>
+            <path d="M160 140 H248"/>
+            <path d="M195 68 V54 H213 V68"/>
+            <path d="M199 54 V46 H209 V54"/>
+            <path d="M300 140 V126 H340 V140"/>
+            <path d="M300 140 H340"/>
+            <path d="M314 126 V62 H326 V126"/>
+            <path d="M310 62 H330"/>
+            <path d="M316 62 C312 52 316 44 320 36 C324 44 328 52 324 62"/>
+          </g>
+
+          <g class="skyline__nodes" fill="#0042aa">
+            <circle class="skyline__node" cx="52" cy="68" r="5"/>
+            <circle class="skyline__node" cx="150" cy="45" r="5" fill="#f26a21"/>
+            <circle class="skyline__node" cx="265" cy="60" r="5"/>
+            <circle class="skyline__node" cx="355" cy="45" r="5" fill="#f26a21"/>
+          </g>
+
+          <g class="skyline__arcs" fill="none" stroke="#f26a21" stroke-width="1">
+            <path d="M138 45 A12 12 0 0 1 150 33" opacity=".38"/>
+            <path d="M130 45 A20 20 0 0 1 150 25" opacity=".26"/>
+            <path d="M122 45 A28 28 0 0 1 150 17" opacity=".15"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <section class="settings">
+      <div class="container">
+        <div class="settings__card">
+          <h2>Настройки сети 868</h2>
+          <p class="settings__intro">Эти значения одинаковые для всей сети. Если хоть одно не совпадёт, нода никого не услышит.</p>
+          <dl class="settings__grid">
+            <div class="settings__item">
+              <dt>Частота</dt>
+              <dd>868.856 <span class="unit">МГц</span></dd>
+            </div>
+            <div class="settings__item">
+              <dt>Полоса</dt>
+              <dd>62.5 <span class="unit">кГц</span></dd>
+            </div>
+            <div class="settings__item">
+              <dt>SF</dt>
+              <dd>7</dd>
+            </div>
+            <div class="settings__item">
+              <dt>CR</dt>
+              <dd>7</dd>
+            </div>
+            <div class="settings__item">
+              <dt>Префикс пути</dt>
+              <dd>2 <span class="unit">байта</span></dd>
+            </div>
+          </dl>
+          <p class="settings__note">В приложении: Frequency, Bandwidth, Spreading Factor, Coding Rate, Path Hash Size.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div class="container">
+        <h2>Три шага до эфира</h2>
+        <div class="steps__grid">
+          <article class="step">
+            <span class="step__num">01</span>
+            <h3>Прошейте ноду</h3>
+            <p>Подключите по USB и выберите свою плату в <a href="/flasher/">прошивальщике</a>.</p>
+          </article>
+          <article class="step">
+            <span class="step__num">02</span>
+            <h3>Вбейте настройки</h3>
+            <p>Значения 868 — в карточке выше.</p>
+          </article>
+          <article class="step">
+            <span class="step__num">03</span>
+            <h3>Скажите привет в Public</h3>
+            <p>Добавьте общий канал и напишите пару слов. Ответят — значит, вас слышат.</p>
+            <a class="button button--secondary" href="meshcore://channel/add?name=Public&amp;secret=8b3387e9c5cdea6ac9e5edbaa115cd72">Добавить Public</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wiki">
+      <div class="container">
+        <div class="wiki__card">
+          <h2>Хотите разобраться, как всё работает?</h2>
+          <p>В вики — роли устройств, каналы, карта покрытия, настройка репитера и ответы на частые вопросы.</p>
+          <a class="button button--secondary" href="/wiki/start">Открыть вики</a>
+          <p class="wiki__links"><a href="/wiki/maps">Карта покрытия</a> · <a href="/wiki/repeater">Настройка репитера</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__brand">MeshCore Санкт-Петербург</span>
+      <nav class="footer__links" aria-label="Полезные ссылки">
+        <a href="/flasher/">Прошивальщик</a>
+        <a href="/wiki/start">Вики</a>
+        <a href="/wiki/maps">Карта покрытия</a>
+        <a href="https://t.me/meshcore_petersburg" target="_blank" rel="noopener">Telegram</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    if (location.hostname === 'meshcore.spb.ru') {
+      (function(m,e,t,r,i,k,a){
+          m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108159015', 'ym');
+
+      ym(108159015, 'init', {ssr:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    }
+  </script>
+  <noscript><div><img src="https://mc.yandex.ru/watch/108159015" style="position:absolute; left:-9999px;" alt=""></div></noscript>
+</body>
+</html>
