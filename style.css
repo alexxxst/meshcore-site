@@ -150,19 +150,8 @@ p {
 }
 
 .hero__params {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px 12px;
   margin-top: 18px;
-  color: var(--muted);
   font-size: 0.95rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.hero__params span:first-child {
-  color: var(--navy);
-  font-weight: 700;
 }
 
 .hero__params a {
