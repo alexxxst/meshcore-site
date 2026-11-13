@@ -300,6 +300,11 @@ p {
   line-height: 1.4;
 }
 
+.step__apps {
+  margin-top: 10px;
+  font-size: 0.88rem;
+}
+
 /* ---------- wiki ---------- */
 
 .wiki {
