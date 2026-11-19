@@ -165,13 +165,82 @@ p {
 }
 
 .hero__logo {
+  position: relative;
   justify-self: center;
 }
 
 .hero__logo img {
   display: block;
-  width: clamp(160px, 20vw, 220px);
+  width: clamp(200px, 24vw, 280px);
   height: auto;
+  -webkit-mask: url("logo-mask.png") center / 100% 100% no-repeat;
+  mask: url("logo-mask.png") center / 100% 100% no-repeat;
+}
+
+/* Огонь вырезан из логотипа маской и нарисован отдельной картинкой:
+   так он может мерцать, а белого квадрата JPG на странице не видно.
+   Наклон (медленный, влево-вправо) живёт на обёртке, мерцание — внутри. */
+.hero__flame {
+  position: absolute;
+  top: 1.4583%;
+  left: 42.7083%;
+  width: 11.25%;
+  height: 10.4167%;
+  animation: flame-sway 7s ease-in-out infinite alternate;
+  pointer-events: none;
+  transform-origin: 50% 100%;
+}
+
+.hero__flame span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("flame.png") center / 100% 100% no-repeat;
+  animation: flame-flicker 3.6s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+
+@keyframes flame-sway {
+  from {
+    transform: rotate(-6deg) translateX(-1.5%);
+  }
+
+  to {
+    transform: rotate(6deg) translateX(1.5%);
+  }
+}
+
+@keyframes flame-flicker {
+  0%,
+  100% {
+    filter: brightness(1);
+    transform: scale(1, 1);
+  }
+
+  18% {
+    filter: brightness(1.05);
+    transform: scale(1.02, 1.07);
+  }
+
+  37% {
+    filter: brightness(0.98);
+    transform: scale(1.01, 1.03);
+  }
+
+  56% {
+    filter: brightness(1.06);
+    transform: scale(1.04, 1.09);
+  }
+
+  74% {
+    filter: brightness(1.01);
+    transform: scale(1.02, 1.05);
+  }
+
+  88% {
+    filter: brightness(1.03);
+    transform: scale(1.03, 1.06);
+  }
 }
 
 /* ---------- skyline ---------- */
@@ -410,7 +479,7 @@ p {
   }
 
   .hero__logo img {
-    width: 120px;
+    width: 150px;
   }
 
   .settings__grid {
@@ -453,7 +522,7 @@ p {
   }
 
   .hero__logo img {
-    width: 96px;
+    width: 132px;
   }
 
   .hero__actions .button {
