@@ -179,16 +179,29 @@ p {
 
 /* Огонь вырезан из логотипа маской и нарисован отдельной картинкой:
    так он может мерцать, а белого квадрата JPG на странице не видно.
-   Наклон (медленный, влево-вправо) живёт на обёртке, мерцание — внутри. */
+   Наклон (медленный, влево-вправо) живёт на обёртке, мерцание — внутри.
+   Пламя — кнопка пасхалки: клик по огню показывает ping/pong. */
 .hero__flame {
   position: absolute;
   top: 1.4583%;
   left: 42.7083%;
   width: 11.25%;
   height: 10.4167%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  overflow: visible;
   animation: flame-sway 7s ease-in-out infinite alternate;
-  pointer-events: none;
   transform-origin: 50% 100%;
+}
+
+/* На телефоне пламя — 15×14 px, пальцем не попасть. Невидимый запас
+   вокруг расширяет цель до ~44 px; кликабелен только огонь. */
+.hero__flame::after {
+  content: "";
+  position: absolute;
+  inset: -15px;
 }
 
 .hero__flame span {
@@ -198,6 +211,49 @@ p {
   background: url("flame.png") center / 100% 100% no-repeat;
   animation: flame-flicker 3.6s ease-in-out infinite;
   transform-origin: 50% 100%;
+}
+
+/* Ответ на клик по огню. Облачко стоит справа от пламени, в координатах
+   логотипа, и не наследует его наклон. */
+.hero__ping {
+  position: absolute;
+  left: calc(53.9583% + 8px);
+  top: 1.4583%;
+  padding: 3px 9px;
+  border: 1px solid var(--orange);
+  border-radius: var(--radius);
+  background: var(--orange-light);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px) scale(0.96);
+  transform-origin: left center;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.hero__ping::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-left: 1px solid var(--orange);
+  border-bottom: 1px solid var(--orange);
+  border-radius: 1px;
+  background: var(--orange-light);
+  transform: rotate(45deg);
+}
+
+.hero__ping.is-on {
+  opacity: 1;
+  transform: none;
+  transition-duration: 0.16s;
 }
 
 @keyframes flame-sway {
