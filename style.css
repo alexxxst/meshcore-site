@@ -256,6 +256,22 @@ p {
   transition-duration: 0.16s;
 }
 
+/* «Ping» отвечает слева от огня, «pong» — справа: хвостик и точка роста
+   разворачиваются вместе со словом. */
+.hero__ping.is-left {
+  right: calc(57.2917% + 8px);
+  left: auto;
+  transform-origin: right center;
+}
+
+.hero__ping.is-left::before {
+  right: -5px;
+  left: auto;
+  border: 0;
+  border-top: 1px solid var(--orange);
+  border-right: 1px solid var(--orange);
+}
+
 @keyframes flame-sway {
   from {
     transform: rotate(-6deg) translateX(-1.5%);
