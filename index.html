@@ -206,6 +206,62 @@
   </footer>
 
   <script>
+    (function () {
+      var flame = document.querySelector('.hero__flame');
+      var bubble = document.querySelector('.hero__ping');
+      if (!flame || !bubble) return;
+
+      var words = ['ping', 'pong'];
+      var index = 0;
+      var timer;
+      var audio;
+
+      function tone(word) {
+        var Ctx = window.AudioContext || window.webkitAudioContext;
+        if (!Ctx) return;
+
+        audio = audio || new Ctx();
+        if (audio.state === 'suspended') audio.resume();
+
+        var start = audio.currentTime;
+        var duration = word === 'ping' ? 0.08 : 0.13;
+        var osc = audio.createOscillator();
+        var gain = audio.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(word === 'ping' ? 880 : 523, start);
+        if (word === 'pong') osc.frequency.exponentialRampToValueAtTime(440, start + duration);
+
+        gain.gain.setValueAtTime(0.0001, start);
+        gain.gain.exponentialRampToValueAtTime(0.05, start + 0.008);
+        gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+
+        osc.connect(gain);
+        gain.connect(audio.destination);
+        osc.start(start);
+        osc.stop(start + duration + 0.02);
+      }
+
+      flame.addEventListener('click', function () {
+        var word = words[index];
+        index = index ? 0 : 1;
+
+        bubble.textContent = word;
+        bubble.classList.remove('is-on');
+        void bubble.offsetWidth;
+        bubble.classList.add('is-on');
+
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          bubble.classList.remove('is-on');
+        }, 1400);
+
+        tone(word);
+      });
+    })();
+  </script>
+
+  <script>
     if (location.hostname === 'meshcore.spb.ru') {
       (function(m,e,t,r,i,k,a){
           m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
